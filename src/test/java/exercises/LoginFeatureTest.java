@@ -16,4 +16,10 @@ public class LoginFeatureTest extends BaseTest {
         InventoryPage inventoryPage = loginPage.login("standard_user", "secret_sauce");
         Assert.assertTrue(inventoryPage.isLoaded());
     }
+
+    @Test
+    public void AllLinksAndImagesShouldNotBeBroken() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.checkAllLinksAndImages();
+    }
 }

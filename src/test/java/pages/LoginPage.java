@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
@@ -30,5 +32,10 @@ public class LoginPage extends BasePage {
     public boolean isLoaded() {
         WebElement sauceBot = driver.findElement(By.className("bot_column"));
         return pageWait.until(ExpectedConditions.visibilityOf(sauceBot)).isDisplayed();
+    }
+
+    public void checkAllLinksAndImages() {
+        List<WebElement> linksList = driver.findElements(By.tagName("a"));
+        linksList.addAll(driver.findElements(By.tagName("img")));
     }
 }
